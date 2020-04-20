@@ -25,5 +25,11 @@ clean:
 lcddemo.elf: lcddemo.o libLcd.a 
 	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@ -lTimer 
 
+lcdX.elf: lcdX.o libLcd.a 
+	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@ -lTimer 
+
 load: lcddemo.elf
+	msp430loader.sh $^
+
+loadX: lcdX.elf
 	msp430loader.sh $^
